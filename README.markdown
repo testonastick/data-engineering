@@ -1,3 +1,27 @@
+# solve the tab delimited file problem
+
+## prerequisites (mac)
+* install [homebrew](http://brew.sh/) 
+* set up homebrew to install regular mac dmg files [per vagrant casked
+  instructions](http://jasoncosper.com/vagrant-casked/): 
+  `brew tap phinze/homebrew-cask && brew install brew-cask`
+* install vagrant via homebrew
+  `brew cask install vagrant`
+* install virtualbox via homebrew
+  `brew cask install virtualbox`
+
+## get set up
+1. git submodule init
+1. git submodule update
+1. vagrant up
+1. vagrant ssh
+1. cd my-app
+1. bundle install
+
+## Acknowledgements 
+* [vagrant casked](http://jasoncosper.com/vagrant-casked/)
+* [rails dev box](https://github.com/rails/rails-dev-box) 
+
 # Challenge for Software Engineer - Big Data 
 To better assess a candidates development skills, we would like to provide the following challenge.  You have as much time as you'd like (though we ask that you not spend more than a few hours).
 
