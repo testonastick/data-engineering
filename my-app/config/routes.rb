@@ -1,4 +1,13 @@
 MyApp::Application.routes.draw do
+  get "orders/upload"
+  post "orders/upload", to: 'orders#upload'
+
+  get "orders/display"
+
+  #resources :order do
+  #  get 'upload' 
+  #end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
