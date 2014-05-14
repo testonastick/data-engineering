@@ -11,16 +11,60 @@
   `brew cask install virtualbox`
 
 ## get set up
-1. git submodule init
-1. git submodule update
-1. vagrant up
-1. vagrant ssh
-1. cd my-app
-1. bundle install
+1. clone this repo
+1. `git submodule init`
+1. `git submodule update`
+1. `vagrant up`
+1. `vagrant ssh`
+1. `cd my-app`
+1. `bundle install`
+1. `rake db:create`
+1. `rake db:migrate`
+
+## run the app
+1. after the above setup, ssh to the guest box
+   `vagrant ssh`
+1. `cd my-app`
+1. `rails s`
+1. from the host box, point your browser at:
+   [http://localhost:3000/orders/upload](http://localhost:3000/orders/upload)
+1. upload a tsv file from the root of the project directory
+
+## run the tests
+1. after the above setup, ssh to the guest box
+1. `cd my-app`
+1. `RAILS_ENV=test rake db:create`
+1. `RAILS_ENV=test rake db:migrate`
+1. `bundle exec rspec spec/`
 
 ## Acknowledgements 
 * [vagrant casked](http://jasoncosper.com/vagrant-casked/)
 * [rails dev box](https://github.com/rails/rails-dev-box) 
+
+## Intentions
+I focused mostly on making the environment easy to spin up. By borrowing the
+puppet setup for the [rails dev box](https://github.com/rails/rails-dev-box),
+I was able to keep you from having to install my DB on your machine. This is
+similar to how I dev rails as well. I did not focus on interface design. 
+
+## Testing
+I did some input/output testing in specs. I avoided mocking in many cases
+as I didn't need to save any time on db access. I didn't bother with cucumber.
+Unless I have a person who will provide the gherkin, I don't get as much
+value from cukes as I do rspecs. 
+
+I did test the functionality uploading a massive file:
+big_example_input_with_decimals.tab did complete while running on my machine
+but took about 10 minutes to do so. 
+
+## What Else Should be Done
+* visual design
+* navigation
+* much more security testing/probing
+* better input checking [little bobby tables](http://xkcd.com/327/)
+* either performance tuning to handle larger files or file size checking with
+  limits
+* better tsv parsing, this is pretty optimistic.
 
 # Challenge for Software Engineer - Big Data 
 To better assess a candidates development skills, we would like to provide the following challenge.  You have as much time as you'd like (though we ask that you not spend more than a few hours).
