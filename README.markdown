@@ -12,6 +12,8 @@
 
 ## get set up
 1. clone this repo
+1. enter project directory
+   `cd data-engineering`
 1. `git submodule init`
 1. `git submodule update`
 1. `vagrant up`
