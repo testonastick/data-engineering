@@ -49,6 +49,13 @@ puppet setup for the [rails dev box](https://github.com/rails/rails-dev-box),
 I was able to keep you from having to install my DB on your machine. This is
 similar to how I dev rails as well. I did not focus on interface design. 
 
+The database schema could be further normalized by adding a customers table. I
+chose, however, to stick with just orders and merchants. The assignment
+instructions ended up asking me to calculate the total revenue per upload and
+that led me to think this was more focused on merchants and transactions. I
+did add an uploaded_at column so we could go back and create a way to look at
+each historical upload grouping.
+
 ## Testing
 I did some input/output testing in specs. I avoided mocking in many cases
 as I didn't need to save any time on db access. I didn't bother with cucumber.
